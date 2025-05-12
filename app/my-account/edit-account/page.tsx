@@ -1,0 +1,30 @@
+import React from 'react'
+import AccountBox from '../components/AccountBox'
+import { StoreProvider } from '@/redux/StoreProvider'
+import EditAccount from './components/EditAccount'
+
+function page() {
+    return (
+        <div className='pt-40 pb-20 px-10 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4'>
+            <div className='col-span-1'>
+                <StoreProvider>
+                    <AccountBox />
+                </StoreProvider>
+            </div>
+
+            <div className='col-span-3'>
+                <div className='flex items-center gap-3 text-blue-800 py-5 border-b-1 border-slate-300'>
+                    <i className='bx bx-user text-2xl'></i>
+                    <h2 className='text-lg font-bold'>اطلاعات شخصی کاربر</h2>
+                </div>
+
+                <StoreProvider>
+                    <EditAccount />
+                </StoreProvider>
+
+            </div>
+        </div>
+    )
+}
+
+export default page

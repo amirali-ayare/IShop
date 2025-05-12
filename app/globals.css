@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Vazir FD;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+
+.cu-left {
+  left: 10px;
+}
+
+.border-b-1 {
+  border-bottom-width: 1px;
+}
+
+@keyframes openmenu {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .95;
+  }
+}
+
+#mobileMenu {
+  animation: openmenu .6s;
+}
+
+#bgblog {
+  background-image: url(../image/blogposter2.jpg);
+}
+
+.blog-text-img {
+  background: rgb(0, 13, 34);
+  background: linear-gradient(0deg, rgba(0, 13, 34, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
