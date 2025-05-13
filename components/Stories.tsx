@@ -85,13 +85,11 @@ function Stories() {
     const [smSpacing, setSmSpacing] = useState(0)
     const [lgSpacing, setLgSpacing] = useState(0)
     const [openStory, setOpenStory] = useState(false)
-    const [openWarning, setOpenWarning] = useState(false)
 
     useEffect(() => {
         setXlSpacing(8)
         setSmSpacing(8)
         setLgSpacing(8)
-        setOpenWarning(true)
     }, [])
 
 
