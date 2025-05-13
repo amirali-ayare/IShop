@@ -5,6 +5,7 @@ import poster from '../image/laptop-poster.jpg'
 import Image from 'next/image'
 import { IProducts } from './NewProducts'
 import ProductCard from './ProductCard'
+import { IProduct } from '@/app/cart/components/CartAmountNav'
 
 
 function Laptops() {
@@ -51,9 +52,10 @@ function Laptops() {
     const [LaptopData, setLaptopData] = useState<IProducts[]>([])
     useEffect(() => {
         const getLaptopData = async () => {
-            const res = await fetch("https://jsonhost.onrender.com/product");
+            // const res = await fetch("https://jsonhost.onrender.com/product");
+            const res = await fetch("https://ayareapi.liara.run/product");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.types.includes("laptop"))
+            const filtered = data.filter((item: IProduct) => item.types.includes("laptop"))
             setLaptopData(filtered)
         }
         getLaptopData();

@@ -1,14 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
-import new1 from '../image/new1.png'
-import new2 from '../image/new2.png'
-import new3 from '../image/new3.png'
-import new4 from '../image/new4.png'
-import new5 from '../image/new5.jpg'
-import new6 from '../image/new6.jpg'
 import NoShadowCard from './NoShadowCard'
 import { IProducts } from './NewProducts'
+import { IProduct } from '@/app/cart/components/CartAmountNav'
 
 function IncreadibleProducts() {
 
@@ -56,9 +51,10 @@ function IncreadibleProducts() {
     const [amazingProducts, setAmazingProducts] = useState<IProducts[]>([])
     useEffect(() => {
         const getAmazingProducts = async () => {
-            const res = await fetch("https://jsonhost.onrender.com/product");
+            // const res = await fetch("https://jsonhost.onrender.com/product");
+            const res = await fetch("https://ayareapi.liara.run/product");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.types.includes("amazing"))
+            const filtered = data.filter((item: IProduct) => item.types.includes("amazing"))
             setAmazingProducts(filtered)
         }
         getAmazingProducts();

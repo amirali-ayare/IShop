@@ -1,8 +1,6 @@
 import React from 'react'
 import TopNav from './components/TopNav'
-import ProductCart from './components/productCart'
 import TotalAmountBox from './components/totalAmountBox'
-import { useDispatch, useSelector } from 'react-redux'
 import { StoreProvider } from '@/redux/StoreProvider'
 import CartList from './components/CartList'
 import CartAmountNav from './components/CartAmountNav'

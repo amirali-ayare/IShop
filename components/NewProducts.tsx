@@ -1,8 +1,8 @@
 "use client"
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import ProductCard from './ProductCard'
+import { IProduct } from '@/app/cart/components/CartAmountNav'
 
 export interface IProducts {
     id: string,
@@ -65,10 +65,10 @@ function NewProducts() {
     const [newProducts, setNewProducts] = useState<IProducts[]>([])
     useEffect(() => {
         const getNewProducts = async () => {
-            const res = await fetch("https://jsonhost.onrender.com/product");
-            // const res = await fetch("https://peakmovie.ir/products/api/");
+            // const res = await fetch("https://jsonhost.onrender.com/product");
+            const res = await fetch("https://ayareapi.liara.run/product");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.types.includes("new"))
+            const filtered = data.filter((item: IProduct) => item.types.includes("new"))
             console.log(filtered);
             setNewProducts(filtered)
         }

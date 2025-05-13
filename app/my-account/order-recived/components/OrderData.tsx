@@ -3,14 +3,13 @@ import Image from 'next/image'
 import React from 'react'
 import thank from '@/image/thankyou.png'
 import { useDispatch, useSelector } from 'react-redux'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { clearReserveData } from '@/redux/ReserveData'
+import { clearReserveData, IReserveData } from '@/redux/ReserveData'
 
 
 function OrderData() {
 
-    const selector = useSelector((state: any)=> state.reserveData)
+    const selector = useSelector((state: {reserveData: IReserveData})=> state.reserveData)
     const Dispatch = useDispatch()
     console.log(selector);
 

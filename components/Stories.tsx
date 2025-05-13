@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import 'keen-slider/keen-slider.min.css'
-import KeenSlider from 'keen-slider'
 import { useKeenSlider } from "keen-slider/react"
 import story1 from '../image/story1.jpg';
 import story2 from '../image/story2.jpg';
@@ -141,14 +140,14 @@ function Stories() {
                 </div>
             </div>
 
-            <div className={openWarning ? 'fixed backdrop-blur w-screen h-screen inset-0 flex items-center justify-center' : 'hidden'} style={{zIndex:'99999999999999'}}>
+            {/* <div className={openWarning ? 'fixed backdrop-blur w-screen h-screen inset-0 flex items-center justify-center' : 'hidden'} style={{zIndex:'99999999999999'}}>
                 <div className='w-60 bg-white rounded-2xl p-3 flex flex-col items-center'>
                     <h6 className='font-medium text-slate-500 text-center'>
                         سلام رفیق, API رو render.com گذاشتیم و حدود ده بیست ثانیه طول میکشه تا اطلاعات فرستاده شه. لطفا یکم صبور باش و بعد اینکه اطلاعات اومد یک بار صفحه رو Reload کن!
                     </h6>
                     <button onClick={()=>setOpenWarning(false)} className='p-3 cursor-pointer mt-5 text-white font-bold rounded-lg bg-teal-400'>حله یکم صبر میکنم</button>
                 </div>
-            </div>
+            </div> */}
 
 
             <div className='w-full hidden lg:block xl:block'>

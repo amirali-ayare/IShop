@@ -18,7 +18,7 @@ function SignPhoneForm() {
     const [phoneNumber, setPhoneNumber] = useState('')
 
     const navigate = useRouter();
-    const onFormSubmit = (data: any) => {
+    const onFormSubmit = () => {
         Dispatch(uploadPhoneNumber(phoneNumber))
         navigate.push('/sign-form')
     }

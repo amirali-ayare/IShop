@@ -3,7 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation'
 import { signUp, uploadName, uploadPassword } from '@/redux/UserProfileData'
 
@@ -15,12 +15,12 @@ function UserDataForm() {
     })
 
     const Dispatch = useDispatch();
-    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
+    const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) })
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
 
     const navigate = useRouter();
-    const onFormSubmit = (data: any) => {
+    const onFormSubmit = () => {
         Dispatch(uploadName(name))
         Dispatch(uploadPassword(password))
         Dispatch(signUp())

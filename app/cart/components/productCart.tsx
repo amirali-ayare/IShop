@@ -1,11 +1,11 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import { IProducts } from '@/components/NewProducts'
 import { decrease, increase } from '@/redux/CartSlice'
 import { useDispatch } from 'react-redux'
+import { IProduct } from './CartAmountNav'
 
-function ProductCart({main_image, string_price, name, quantity, id}:IProducts) {
+function ProductCart({main_image, string_price, name, quantity, id}:IProduct) {
 
     const Dispatch = useDispatch();
 

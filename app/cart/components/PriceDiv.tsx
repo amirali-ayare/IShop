@@ -1,11 +1,12 @@
 'use client'
 import React from 'react'
 import { useSelector } from 'react-redux';
+import { IProduct } from './CartAmountNav';
 
 function PriceDiv() {
 
-    const selectedProducts = useSelector((state: any) => state.ShopCart)
-    const totalPrice = selectedProducts.reduce((total: number, item: any) => {
+    const selectedProducts = useSelector((state: {ShopCart: IProduct[]}) => state.ShopCart)
+    const totalPrice = selectedProducts.reduce((total: number, item: IProduct) => {
         return total + (item.quantity * item.price);
     }, 0);
 

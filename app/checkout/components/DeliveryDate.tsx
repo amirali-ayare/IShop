@@ -1,5 +1,5 @@
 'use client'
-import { setDeliveryDay, setDeliveryTime } from '@/redux/ReserveData';
+import { IReserveData, setDeliveryDay, setDeliveryTime } from '@/redux/ReserveData';
 import moment from 'moment-jalaali';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,7 +42,7 @@ function DeliveryDate() {
         },
     ]
 
-    const reserve = useSelector((state: any) => state.reserveData)
+    const reserve = useSelector((state: {reserveData: IReserveData}) => state.reserveData)
     const Dispatch = useDispatch();
 
     const boxClass = 'py-3 px-6 text-sm font-bold text-slate-600 cursor-pointer rounded-xl flex items-center justify-center border-1 border-slate-200 shadow-[0_3px_0_0_rgba(0,0,0,0.1)]'

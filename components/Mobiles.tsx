@@ -3,50 +3,12 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import Image from 'next/image'
 import poster from '../image/mobile.jpg'
-import mobile1 from '../image/mobile1.jpg'
-import mobile2 from '../image/mobile2.jpg'
-import mobile3 from '../image/mobile3.jpg'
-import mobile4 from '../image/mobile4.png'
-import mobile5 from '../image/mobile5.png'
-import mobile6 from '../image/mobile6.png'
 import { useKeenSlider } from 'keen-slider/react'
 import { IProducts } from './NewProducts'
+import { IProduct } from '@/app/cart/components/CartAmountNav'
 
 
 function Mobiles() {
-
-    const mobiles = [
-        {
-            img: mobile1,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '20,000,000'
-        },
-        {
-            img: mobile2,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '50,000,000'
-        },
-        {
-            img: mobile3,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '34,000,000'
-        },
-        {
-            img: mobile4,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '23,400,000'
-        },
-        {
-            img: mobile5,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '1,000,000'
-        },
-        {
-            img: mobile6,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '900,000'
-        },
-    ]
 
     const [xlSpacing, setXlSpacing] = useState(0)
     const [smSpacing, setSmSpacing] = useState(0)
@@ -92,9 +54,10 @@ function Mobiles() {
     const [mobilesData, setMobilesData] = useState<IProducts[]>([])
     useEffect(() => {
         const getMobileData = async () => {
-            const res = await fetch("https://jsonhost.onrender.com/product");
+            // const res = await fetch("https://jsonhost.onrender.com/product");
+            const res = await fetch("https://ayareapi.liara.run/product");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.types.includes("mobile"))
+            const filtered = data.filter((item: IProduct) => item.types.includes("mobile"))
             console.log(filtered);
             setMobilesData(filtered)
         }

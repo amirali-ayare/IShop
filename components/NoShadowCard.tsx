@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { IProductProps } from './ProductCard'
 import { IProducts } from './NewProducts'
 import Link from 'next/link'
 

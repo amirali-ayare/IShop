@@ -1,11 +1,29 @@
 'use client'
+import { Ifeatures } from '@/app/product/[id]/components/ProductPage'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
+export interface IProduct {
+    id: string,
+    quantity: number,
+    name: string,
+    english_name: string,
+    rating: number,
+    info: string,
+    images: string[],
+    main_image: string,
+    price: number,
+    offer_percent: number,
+    string_price: string,
+    types: string[],
+    features: Ifeatures[],
+    comments: object[]
+}
+
 function CartAmountNav() {
 
-    const selectedProducts = useSelector((state: any) => state.ShopCart)
-    const quantitys = selectedProducts.reduce((total: number, item: any) => {
+    const selectedProducts = useSelector((state: {ShopCart: IProduct[]}) => state.ShopCart)
+    const quantitys = selectedProducts.reduce((total: number, item: IProduct) => {
         return total + item.quantity;
     }, 0);
 
@@ -15,6 +33,6 @@ function CartAmountNav() {
             <h1 className='text-2xl font-bold text-slate-700'>سبد خرید</h1>
         </div>
     )
-}
+}  
 
 export default CartAmountNav

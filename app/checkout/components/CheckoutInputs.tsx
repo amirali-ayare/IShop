@@ -1,13 +1,11 @@
 'use client'
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setAddress, setName, setPhoneNumber, setReserveCity } from '@/redux/ReserveData';
 
 function CheckoutInputs() {
 
     const Dispatch = useDispatch();
-    const reserve = useSelector((state: any) => state.reserveData)
-    console.log(reserve);
 
     return (
         <form>

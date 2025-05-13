@@ -1,7 +1,7 @@
 'use client'
 import { PostMethod } from '@/redux/ReserveData'
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 function PaymentMethod() {
 

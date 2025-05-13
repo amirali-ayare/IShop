@@ -1,16 +1,11 @@
 import React from 'react'
 import ShopCard from './components/ShopCard'
 import TopNav2 from '../cart/components/TopNav2'
-import moment from 'moment-jalaali';
 import { StoreProvider } from '@/redux/StoreProvider'
 import CheckoutInputs from './components/CheckoutInputs';
 import DeliveryDate from './components/DeliveryDate';
 
 function page() {
-
-    
-    // const currentHour = date.getHours()
-    
 
 
     return (

@@ -1,5 +1,5 @@
 'use client'
-import { uploadBirthday, uploadEmail, uploadJob, uploadName, uploadNationalCode, uploadPhoneNumber, uploadTelephone } from '@/redux/UserProfileData';
+import { IUser, uploadBirthday, uploadEmail, uploadJob, uploadName, uploadNationalCode, uploadPhoneNumber, uploadTelephone } from '@/redux/UserProfileData';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
@@ -8,7 +8,7 @@ import * as yup from 'yup'
 
 function EditAccount() {
 
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
     const Dispatch = useDispatch();
 
     const [name, setName] = useState(user.name)
@@ -28,7 +28,7 @@ function EditAccount() {
         email: yup.string(),
     })
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) })
-    const onFormSubmit = (data: any) => {
+    const onFormSubmit = () => {
         Dispatch(uploadName(name))
         Dispatch(uploadNationalCode(nationalCode))
         Dispatch(uploadBirthday(birthDay))
@@ -37,7 +37,6 @@ function EditAccount() {
         Dispatch(uploadEmail(email))
         Dispatch(uploadJob(job))
     }
-    console.log(user);
 
     return (
         <form onSubmit={handleSubmit(onFormSubmit)} className='mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-5'>

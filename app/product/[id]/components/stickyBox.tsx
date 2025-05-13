@@ -5,15 +5,15 @@ import Image from 'next/image'
 import score from '@/image/score.jpg'
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { IProducts } from '@/components/NewProducts'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, decrease, deleteFood, increase } from '@/redux/CartSlice'
+import { IProduct } from '@/app/cart/components/CartAmountNav'
 
 export interface IProductStickyBox {
-    item: object,
-    SPrice: string,
-    OPercent: number,
-    id: string
+    item: IProduct | null,
+    SPrice: string | undefined,
+    OPercent: number | undefined,
+    id: string | undefined
 }
 
 function StickyBox({ OPercent, SPrice, id, item }: IProductStickyBox) {
@@ -33,13 +33,13 @@ function StickyBox({ OPercent, SPrice, id, item }: IProductStickyBox) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const selectedProducts = useSelector((state: any) => state.ShopCart)
+    const selectedProducts = useSelector((state: {ShopCart: IProduct[]}) => state.ShopCart)
     const Dispatch = useDispatch();
     console.log(selectedProducts);
     
 
     const [isInCart, setIsInCart] = useState(false)
-    const product = selectedProducts.find((item: any) => item.id === id);
+    const product = selectedProducts.find((item: IProduct) => item.id === id);
 
 
     const CheckProduct = () => {

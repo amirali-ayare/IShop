@@ -1,49 +1,11 @@
 "use client"
 import { useKeenSlider } from 'keen-slider/react';
-import new1 from '../image/new1.png'
-import new2 from '../image/new2.png'
-import new3 from '../image/new3.png'
-import new4 from '../image/new4.png'
-import new5 from '../image/new5.jpg'
-import new6 from '../image/new6.jpg'
 import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard';
 import { IProducts } from './NewProducts';
+import { IProduct } from '@/app/cart/components/CartAmountNav';
 
 function MostSell() {
-
-    const mostSellProducts = [
-        {
-            img: new1,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '20,000,000'
-        },
-        {
-            img: new2,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '50,000,000'
-        },
-        {
-            img: new3,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '34,000,000'
-        },
-        {
-            img: new4,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '23,400,000'
-        },
-        {
-            img: new5,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '1,000,000'
-        },
-        {
-            img: new6,
-            name: 'گوشی مدل ایفون پرومکس دو سیم کارته',
-            price: '900,000'
-        },
-    ]
 
     const [xlSpacing, setXlSpacing] = useState(0)
     const [smSpacing, setSmSpacing] = useState(0)
@@ -89,9 +51,10 @@ function MostSell() {
     const [mostSold, setMostSold] = useState<IProducts[]>([])
     useEffect(() => {
         const getMostSellProducts = async () => {
-            const res = await fetch("https://jsonhost.onrender.com/product");
+            // const res = await fetch("https://jsonhost.onrender.com/product");
+            const res = await fetch("https://ayareapi.liara.run/product");
             const data = await res.json();
-            const filtered = data.filter((item: any) => item.types.includes("most_sell"))
+            const filtered = data.filter((item: IProduct) => item.types.includes("most_sell"))
             setMostSold(filtered)
         }
         getMostSellProducts();

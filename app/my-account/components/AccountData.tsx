@@ -1,10 +1,11 @@
 'use client'
+import { IUser } from '@/redux/UserProfileData'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
 function AccountData() {
 
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
 
     const account_data = [
         {

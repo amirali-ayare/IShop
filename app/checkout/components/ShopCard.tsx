@@ -1,15 +1,14 @@
 'use client'
+import { IProduct } from '@/app/cart/components/CartAmountNav';
 import { addCartToReserve, setTotalPrice } from '@/redux/ReserveData';
-import { setToLatestOrders } from '@/redux/UserProfileData';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 function ShopCard() {
 
-    const reserveData = useSelector((state: any) => state.reserveData)
-    const selectedProducts = useSelector((state: any) => state.ShopCart)
-    const totalPrice = selectedProducts.reduce((total: number, item: any) => {
+    const selectedProducts = useSelector((state: {ShopCart: IProduct[]}) => state.ShopCart)
+    const totalPrice = selectedProducts.reduce((total: number, item: IProduct) => {
         return total + (item.quantity * item.price);
     }, 0);
 
@@ -23,16 +22,14 @@ function ShopCard() {
     const confirmReserve = () => {
         navigate.push('/my-account/order-recived')
         Dispatch(addCartToReserve(selectedProducts))
-        // Dispatch(setToLatestOrders(reserveData))
     }
-    // console.log(reserveData);
 
 
     return (
         <div className='p-5 border-1 border-slate-200 rounded-xl'>
             <div className='border-b-1 border-slate-200 flex flex-col items-center'>
                 {
-                    selectedProducts.map((item:any, index:number) => {
+                    selectedProducts.map((item:IProduct, index:number) => {
                         return (
                             <div key={index} className='flex items-center gap-5 py-3'>
                                 <div>

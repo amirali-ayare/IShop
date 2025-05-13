@@ -1,12 +1,12 @@
 'use client'
-import { uploadAddress } from '@/redux/UserProfileData'
+import { IUser, uploadAddress } from '@/redux/UserProfileData'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 function AddressDiv() {
 
     const [address, setAddress] = useState('')
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
     const Dispatch = useDispatch();
 
     const changeAddress = () => {

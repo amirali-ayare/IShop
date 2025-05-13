@@ -1,7 +1,5 @@
 import React from 'react'
 import AccountBox from './components/AccountBox'
-import Image from 'next/image'
-import iphone from '@/image/iphone-example.png'
 import { StoreProvider } from '@/redux/StoreProvider'
 import AccountData from './components/AccountData'
 

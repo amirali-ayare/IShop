@@ -1,5 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface IReserveData {
+    cart: object[],
+    name: string,
+    phoneNumber: string,
+    address: string,
+    city: string,
+    deliveryDay: string,
+    deliveryTime: string,
+    postMethod: string,
+    totalPrice: number
+}
+
 export const ReserveData = createSlice({
     name: 'reserveData',
     initialState: {
@@ -12,7 +24,7 @@ export const ReserveData = createSlice({
         deliveryTime: '',
         postMethod: '',
         totalPrice: 0,
-    },
+    } as IReserveData,
 
     reducers: {
         setName: (state: any, action) => {

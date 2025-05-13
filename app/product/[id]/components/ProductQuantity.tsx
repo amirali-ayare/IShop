@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { IProductStickyBox } from './stickyBox';
 import { addToCart, decrease, deleteFood, increase } from '@/redux/CartSlice';
+import { IProduct } from '@/app/cart/components/CartAmountNav';
 
 function ProductQuantity({ id, item }: IProductStickyBox) {
 
-    const selectedProducts = useSelector((state: any) => state.ShopCart)
+    const selectedProducts = useSelector((state: {ShopCart: IProduct[]}) => state.ShopCart)
     const Dispatch = useDispatch();
 
     const [isInCart, setIsInCart] = useState(false)
-    const product = selectedProducts.find((item: any) => item.id === id);
+    const product = selectedProducts.find((item: IProduct) => item.id === id);
 
 
     const CheckProduct = () => {

@@ -1,11 +1,12 @@
 'use client'
+import { IUser } from '@/redux/UserProfileData'
 import Link from 'next/link'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
 function NavbarButtons() {
 
-    const user = useSelector((state: any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
 
     return (
         <div className='flex gap-3'>

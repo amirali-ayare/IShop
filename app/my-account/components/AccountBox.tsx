@@ -4,10 +4,11 @@ import React from 'react'
 import ProfileImage from '@/image/profile-image.png'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
+import { IUser } from '@/redux/UserProfileData'
 
 function AccountBox() {
 
-    const user = useSelector((state:any) => state.user)
+    const user = useSelector((state: {user: IUser}) => state.user)
 
     const account_links = [
         {
