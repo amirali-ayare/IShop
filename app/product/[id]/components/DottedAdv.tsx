@@ -31,7 +31,7 @@ function DottedAdv() {
     ]
 
     return (
-        <div className='grid gap-5 grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 border-t-2 border-b-2 border-dotted border-slate-200 p-5 mt-10'>
+        <div className='grid gap-5 col-span-3 grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 border-t-2 border-b-2 border-dotted border-slate-200 p-5 mt-10'>
             {
                 AdvData.map((item, index) => {
                     return (
@@ -47,8 +47,6 @@ function DottedAdv() {
                     )
                 })
             }
-
-
         </div>
     )
 }

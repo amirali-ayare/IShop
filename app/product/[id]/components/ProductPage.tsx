@@ -49,7 +49,7 @@ function ProductPage({ params }: prop) {
                 <h3 className='text-xs text-slate-400 mt-2'>{choosenProduct?.english_name}</h3>
             </div>
 
-            <div className='grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-8'>
+            <div className='grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 mt-8 w-full'>
 
                 <div>
                     <div className='flex flex-col lg:flex-row xl:flex-row gap-4'>
@@ -144,8 +144,12 @@ function ProductPage({ params }: prop) {
                     </StoreProvider>
                 </div>
 
+
                 <DottedAdv />
                 <Commnets {...choosenProduct as IProducts} />
+
+
+
 
                 <StoreProvider>
                     <ProductQuantity item={choosenProduct!} SPrice={choosenProduct?.string_price} OPercent={choosenProduct?.offer_percent} id={choosenProduct?.id} />

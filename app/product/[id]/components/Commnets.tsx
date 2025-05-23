@@ -5,7 +5,7 @@ import { IProducts } from '@/components/NewProducts'
 
 function Commnets({ comments }: IProducts) {
     return (
-        <div className='mt-10'>
+        <div className='mt-10 col-span-3'>
             <div className='mb-5'><h1 className='text-slate-600 text-2xl font-extrabold'>امتیاز و دیدگاه کاربران</h1></div>
 
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5'>
